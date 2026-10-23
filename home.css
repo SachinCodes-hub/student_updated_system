@@ -1,0 +1,39 @@
+body{
+    width:100%;
+    margin:0;
+    padding:0;
+
+}
+
+.navbar{
+    z-index: 9999;
+    margin: 0%;
+    top:0;
+    left:0;
+    width: 100%;
+    background-color: #313970;
+
+
+}
+
+#fa2{
+    color:white;
+    font-size:20px;
+    margin-left:10px;
+    margin-bottom:10px;
+    
+
+
+}
+#fa3{
+    margin-left:600px;
+    border-left:100px;
+    margin-top:15px;
+    margin-bottom:15px;
+    margin-right:0px;
+    text-align:right;
+
+    color:white;
+    font-size:15px;
+
+}

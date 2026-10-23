@@ -1,0 +1,357 @@
+<head>
+    <title>Student Profile</title>
+    <link rel = "icon" href ="https://erp.mitwpu.edu.in/New_css/favicon/apple-touch-icon.png" >
+    <link rel="stylesheet" href="portal.css">
+    <script src="portal.js" defer></script>
+
+<style>
+/* Navbar Container */
+body{
+    margin:0;
+    padding:0;
+
+}
+.navbar {
+    width:100%;
+    height:45px;
+    
+
+  top:0;
+
+  color:#f0f0f0;
+
+  display: flex;
+  align-items: center;
+  justify-content:left;
+
+  
+  background: #313970;
+ 
+  font-family: Arial, sans-serif;
+  position: fixed;
+
+}
+#title1{
+    margin-left:30px;
+
+}
+#title2{
+    margin-left:200px;
+    padding-left:500px;
+
+}
+
+/* Left side: logo + hamburger */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Logo */
+.nav-left img {
+  height: 40px;
+}
+
+/* Hamburger icon */
+.hamburger {
+  font-size: 26px;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+}
+
+/* Dropdown menu */
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 70px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.menu-dropdown a {
+  display: block;
+  padding: 10px 18px;
+  text-decoration: none;
+  color: #333;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.menu-dropdown a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Right-side links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: grey;
+}
+
+/* Responsive (optional) */
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ✅ Navbar -->
+<nav class="navbar">
+  <div class="nav-left">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQAmQMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABgcBBAUDAv/EAEkQAAEDAwIDAwgFCAUNAAAAAAECAwQABREGIRITMQdBURQVIjJhcYGRI0KhscEWM1Jic9Hh8CQmQ5KyNDVFU1RVZHJ0k8LD8f/EABoBAQADAQEBAAAAAAAAAAAAAAABAgMEBQb/xAAnEQACAgEEAQQCAwEAAAAAAAAAAQIRAwQSITETIkFRoWHBFEKRUv/aAAwDAQACEQMRAD8AvGlKUApSlAKUpQClKUApWK8XZLbTzLS1YW8ohseJAJP2CgPelYzWaAUpSgFKUoBSlKAUpSgFKUoBSlKAUpSgGawaVgqoATVeai1Gtd/guwXbWuPbn1rPMuaWy7ltSCkpx6OCo+PSprNu1vgjMydHjgdS46lOPmaqdxWlZL+qnpbsJT6nlGArizn6POUY6+lW+GFvlGOSdVRblsnM3CI1KYcbcQsdW1hYz3jI64NblRDQl3tCdMWiK3PhiQ3EbDrQeTxJXwjiyPHOaliVhQBGCk94OaxlHa2jSErR90rANZqCwpSlAKUpQClKUApSlAKUpQCvkmiyMVB9Q3yddborTul1APp/yyd1TGHeBj61TGLkyspUdDUWtIdplC3xGnbhc1nCYscZKT+se6oRdZOsr/chahNRHkLGVw4isJjoPe64N8+wE13J8eLoq3x7ZYGvKL/czy0PLGXFHO7ivAAn3fKpRpawM6ftwYSS6+4eZIfV6zqz1JNbqUcatIycXN0yC3fS9r0paG3FNedL9NWGIy3xxDmHvCTtgZzvnuqRWPs8sUK1CPcIbM2StP0r7gJVn9U/VHurWYPn7tNfUo8caxsBKfDmr6n39flU7GaieSaSViEItt0VTE0va4Wo3tNXqIh6LLSXrdK6OJ8UFQ3/APnt21rpY7/oyUmRbb0+i1qIAeXlaGj3BxO+E/rAHr0qWdqMJ1dgbukTKZdreTIbUPDof3/CpLCfYvFoaf4ErYlMhRQrcEKHQ1bytJS/0r4le0iUDXUm2usxdXw0xeaPop8c8Ud3PQ57qnLLqXkJcbWFoUMpUk5BHvqv47DenLx+TV1bTI0/cifIS+MhpfUtn7cfDxr5dZndnr/OiF2bppaxzmlEqXDz9YHw/n2msoxl0WjKS7LHpWtClMTIzcmM6l1l1PEhaTkEVs1h0bJ2KUpQkUpSgFKUoBWKzXyaAi2ur4/AiMW6173W5L5MYDqjxX8M/wA4rd01ZIumrQlhCsqALkh9XVxXeomuFpVPn/Vt21C76UeKryKDnwHrqHv2rf7Srgu3aSlBnPPlFMdsDvKjg/Zmta6gjK7Tkzm6IbXf75P1XKTltSzHt6T9RoE+l8f31OXVhppTivVSCT7q0dO21FpscGAnqwylKiPrKx6R+Jya89WSDE0zdJA6txXCP7pqJPdPglLbG2RzsraL1uuV1cwXLhPdcJ9mf35qc1GuzqOI+i7UkDBWzzPfxEn8aktRkdzZONVE1LtDTPtkqGv1X2lN/MYqLdk01UvR7Lbv5yK6thY8MbgfJQqaHpUC7Nk+SXbVFvzhLdwLiU+AVn8AKmPMGiJcTTO/rKxo1BY34eMPp+kjrHVDg9Ug/Z8a8NGXVOo9NNOSkhToSWJTax9cbKBHt2NSPFQiwgWftCvFsHos3BpM1pPdxdFY+2keYtfAlxJP5PGylzR2p/MbqibNcCVwFq/snPrNk/z3VPkmo5ryy+eNOvoZymXH/pEZafWQtO+33VuaTu4vdgh3DYLcbAcT4LGxHzpLmO4R9L2nZpXCu95fjy0xIqUhZUlJcU2XPSUCQkJBGThJJ329tetju6555bwQVFsOtOtghLqM4JwdwQdiN+o3qlMvaujsUpSoJFKVqXVZbt0pxKikoZWoFPUYBoDayPGuVqed5u0/cZgOCzHWoe/G1VJHTdJUq1sNzrpzLo2XY+ZwAwM54ttundXyItyuVuuri37o7HgEokoXNByR1AGN66lp1fMjnlmdVRZ/Z/CEDR9sb+stkOqPiV+l+NcnX2JeodL207pcmF1SfHhFQvTMy9X11cO0XC7BMdviPHMSlKU9ABtWLTGvGpLkt2O9cly7aVJ5r8xILR6FIODucVdYXGbbaK+W4pJF3DpUX7TXgxoa6rzjKEo6/pLSPxqA2KRqK+TpcOFcLwlyIeF/mzEgNnJGCQDvkH5Vxr7d5fMk2m8Srw5wLCXWFyEqCiDkd3jg1GPTS399EyzenouvS7XI03amf0IbKfkgV1MiqhnRdUWiyi4PzLqiMhAKm0TUlTae7I4fxNLIjVF8tqrhBnXcsAkJ5k1KVOEHB4Rj78VR4LuVqiyy1xRbxIxUD0sOV2j6nR3LQ0uonp+XqHUEt6NAn3gLY/OqdlpSlG+MH0euxrmXSbNsF7kCZIuzNwUhPNeRJQS4juOcbjarw07txvkpLL1Ki+gag+rsQ9d6Vnp25q3IrntCh6I+ajUXeOpmbAm9rnXgRFIDmPLE8YQeiiMdK1Ho15nWJvUMh65vRIque2XJaStGD64GO78KrDBT7RM8t8UXSTtUL7PR5BcNRWbPoRJ3MaHghwZA+z7ah3ll/wDycF+85XjyAqxnyxPF63DnHD0yK59rTNujF0vMORdP6K3xy3VTEpWoAE+G5ABqY6d7Xb4Ill9SpFrXuyqmSg8GGpTC1JU7GdIAUpIKQdwR0Ucg+A3rZsVteiK5kpQ4kMhhlHFxctsHO6sDJO3d9Ue81MDdPI7ZL8tu3JuTpaj5nDOQcelttVg9m7z64NyjyXpDjsScthXPd5hBSBnB8KpkxOEbsvCalLomQpWBWa5zcVp3jJtcwJSVEsLAAGSfRNblYVQFGWu8uRJ2mpK7VclJtMZbT6URz6SiD6vs3769rbf1Q7ZqGI5abmpdzdcW0pLB4UBQwOL+GauKPNiyXFNsSGnFp6pQsEivda0oSVLUEpHUk9K6PPH/AJ+zB4JJ9lHdn12c0tNmPTbXcnkvtJQkMsHIwc75xXR0bqfzFLuzsmzXZ1M2SXUBqPnhTk9ckePdVtMToshtTkeQ04hHrKQsED31iNPhygoxpTLoT6xQsHFWlqIybbj2StPNe/X4Kj0hqXzFd79Nk2a6uIuUjmtBuOSUjjcVg5x+mKj+oHpF01O9dmbXcEMuPJcCHGFcQAxtttV7ee7WP9IRs/tU/vr7autufdS2zMjrcUcBKXASaR1SjNyUfsPS5Ntfor6/66ZulklwGbHekOPsltKnI44QT0zg146Q1o3Y9PxLZJsd5cdZB4ltRvR3JO2TVpiteXOiwynyqQ0zxdOYsJzWflht27QsU3Lh/RUejNR+YJt2fk2a6uJmv8xsNR90jKuuSPHurj69nvalvSJ0S2XFppMdLRQ7HOcgqOds+Iq9H5kaM0l2Q+002cYWtWAfcaymZGVHMhMhosAZLoUOH51otTFT37eSHp5ONexV03WCJGjFWUWa7h8wwxzPJ/RyBgnrnu8K1o2qOVoNWnjZ7sZJhrZ5oj+hxEHfrnG/hVsNT4jzC32pLK2UestKwQPjXj57tX+8Yv8A3k1TzwX9fyW/jzb7+iohfVDs9Gm/NF0MrCvpfJ/Q3dK/HPQ+FaumLo5Z9PX22v2u5LduTSkNrRHOEkoUnfPtPdV5MvtPo42HUOIPehWRXkzPiPOllmS044OqErBI+FWWoik47eyv8eV3fRSgu6xZtOQTarkV2qQXXVBg4WConA9u/fVhdmS1vx73LXHfYTKujryEvIKVcKgk9KlsmSzFa5kl1DTfQqWcDNfUd5qQ2HWHEOIPRSDkGs8mVSVJFo4nH1HqKzWBWayNRXy56h91fVfLnqmhK7KFsF1VZdSomA4b5xQ6P0kE7/Lr8KsDtOvaY1kbhxljmTepSf7Pv+ewqtmLeufIuAayVsoceCQPWCTuPlmvSMmVeytTzhWiDDKs9QEJ6D4k1gm0mfST0+OeSGSX9e/0Srs7H9WtR4A/Nf8ArVWeydnnpu7OQOYylOcdM5FY7OttNaj/AGR/wKr27Hfz9y/5EfjV17HLqFUcz/KODqzRqtNRY765aHw65ywA3jGxOepru6L0SV+a755YkICg9yuVv7s5ro9sH+aoH/U/+JqQ6GH9UrZ+wFFFbjPJqcj0cXfbaN1y92ppxaHLhGStJwpJdGQahva3HRItUCe3wrShwpCgc5Ch/CurL7O7JKlPSHfKOJ5xTigHO8nJ++vfWNqb/IqXCYSSmOylTYO59Ag/cDVndHLglix5YSi/fkrnUt4M/Tdhh8WSw0SvPin0Bn4An40hXfl6DuFsUrCjKSEj9Q7nHxSfnWhpO3edNQwoqxxI5nGsdxSN60rrCVb7nKhEEllwoHuB2+ysbfZ73hxX4fj1fZPLJDDHZZcn8YMhLjnwB4R91RjTen4d4juuSrozCU2sJCV49IY69asi7xBA7OHoo/soQSffgZqAaO0cnU0WQ8Zgjclzg4eRx52Bz6wq7T4OHT5V48mRyrn4s6HZnJei6nft7MjnRltuE4zwnhOyh4fxr50CMdoEo4/2jH96p3pbSUPTaVuNLW/IcTwqdWANvADuFV5Gk/klr6Q9OQoslxzcdeWs5BHjilUlZRZI55ZdnuiZdq5H5LAf8Qj8a9+zDH5JMY/1i/8AEai/aFq233e3NQLasvDmBxbnCQBgHb2nepnoOA5bdMxGX0lDigXFIPVPEc4+2rLmZzZYPHpFGfDskQrNBSrnnCsK32rNKAj1r0labVNdlxGV8x1JSricUoYPUYpB0lZ4EWZHjR1JbljhdHGrOPAHuqQ0qKRp5cnycO06YtlphyokRpYalDDoU4okjBHXu60sGm7dYC8bc2tKnQAorWVdPfW87PYaW4hWcocbbPo/WXgJ++tO8XB+NKaYZTwAtKcU6W+MAJxt6wx160oh5ZtNN9n3f7FBv8dti4IUpDa+NBSspIOMd3vrctsJi3QmYUVJSyynhQCSdvfXIjamjKiMOSGnUqdcU2ktpylRG+R7DkfzvXurUcEL4OF7i4UrxwbgHGO/9YfOpI3S27b4O3Xk+yh9pbbgyhaSlQ8Qa4Mq9uuyUtRG3mUJS4XHFsBW6VBJA9Id561hjUYbd5MtHEtXqKZwSvYn1MkjYHxFCp92TSNosUwyoDLgdKSjKnCrAPhn3V8XDRtnuFz84SWHC+SFHhdUAojpkCvprUSHHQ7yXkxAxzCSgZzxFOSc9Nq2410Qu0uz1FxxtsrOUt8JUkHuGe7pn2GopGvmyXe7k250Ji4QHoUlJUw6nhWASNq1LBYYNhYcZt6FJS6rjVxLKiTjHfXwNRRQ1zFNPoRhJJUkADiGRvmtm3XVi4KIZQ8AEJcy4jhHCrp86kpvltcb4N8jNci/actl9bSi4MZUn1HEHCk/Gtzy9gOFGTkP8jp9fh4vurbG9HyRGTi7iyK2nQVktslMgNOSHEHKeeviCfgAKlKQB0r7pUUl0WnklkdydmBWaUqSgpSlAKUpQHPftaXnHVl0guPNO7J6FsggfHFfU62tzXUreUeENqRwjbqUnOe7HDW9SgODI0yzIaCFyneILWvjISoni7jkb9K9FafaUsr5y8lhDW4zjhI3HhnG4rtUoDlCxsKcWXyHW187KFJ2+kWlf2FNBZmkSA40oIQH+fywgABXAUnB8DkH4V1aUBFbfaHhMLLrcnyfgAClKCeUUK4kcGCfH37b12WrYhi2OQypTyVBzPEd1cWSfvroBIFCM0BGLXanS64iWmUEJ4FofWsIWFhJTgYPTBI27vbXXtdrTbxhLpc+hba3GPUBGfjmt/hA6V9UBzjawXeYXTnyvynp38HDiugBis0oBSlKAUpSgFKUoBSlKAUpSgFKUoBSlKAUpSgFKUoBSlKAUpSgFKUoD//Z" alt="Logo">
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+  </div>
+
+  <!-- Dropdown -->
+  <div class="menu-dropdown" id="menuDropdown">
+    <a href="profile.html">profile</a>
+    <a href="attendence.html">attendence</a>
+    <a href="timetable.html">timetable</a>
+    <a href="result.html">result</a>
+    <a href="onlinelibrary.html"> E-library</a>
+    <a href = "Fees.html">Fees</a>
+    <a href="hallticket.html">HallTicket</a>
+    <a href = "achievement.html" >Achivements</a>
+    <a href="academics.html" >Academics</a>
+  </div>
+
+  <div class="nav-links">
+    <a href="home.html" id ="title1">School of Enginnering and Technology , Punecity</a>
+    <a href="profile.html" id ="title2">Sachin Laxman Karale</a>
+   
+  </div>
+</nav>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menuDropdown");
+  menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+</script>
+    <script>function toggleMenu() {
+  const menu = document.getElementById("menuDropdown");
+  menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}</script>
+
+
+
+
+
+<div class="erp-timetable-container">
+  <div class="erp-header">
+    <h2>School of Engineering and Technology, Pune City</h2>
+    <p>Self Timetable (TYBTech – ECE-B  2025–2026 (Semester–V))</p>
+  </div>
+
+  <table class="erp-timetable">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>08:30 am - 09:30 am</th>
+        <th>09:30 am - 10:30 am</th>
+        <th>Recess</th>
+        <th>10:45 am - 11:45 am</th>
+        <th>11:45 am - 12:45 pm</th>
+        <th>Recess</th>
+        <th>01:30 pm - 02:30 pm</th>
+        <th>02:30 pm - 03:30 pm</th>
+        <th>03:30 pm - 04:30 pm</th>
+        <th>04:30 pm - 05:45 pm</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><strong>Monday</strong></td>
+        <td class="subject blue">ECE3PE11A<br>TH/ERS_PE_TH_B<br>1] VUP KS-406</td>
+        <td class="subject cyan">ECE3PE21A<br>TH/ANN_PE_TH_B<br>1] MCK KS-407</td>
+        <td class="recess">Recess</td>
+        <td class="subject violet">ECE3PM03A<br>PR/TY_ECE_PR_B<br>3] VSJ JN-110A</td>
+        <td class="subject violet">ECE3PM02A<br>PR/TY_ECE_PR_B<br>1] PMJ VK-207</td>
+        <td class="recess">Recess</td>
+        <td class="subject green">ECE3PM02A<br>TH/TY_ECE_B_TH<br>1] PMJ VK-306</td>
+        <td class="subject green">ECE3PM01A<br>TH/TY_ECE_B_TH<br>1] SBS VK-306</td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td><strong>Tuesday</strong></td>
+        <td class="subject cyan">ECE3PR01A<br>PR/TY_ECE_PR_B<br>2] RSK KS-405</td>
+        <td></td>
+        <td class="recess">Recess</td>
+        <td class="subject violet">ECE3PM03A<br>PR/TY_ECE_PR_B<br>1] VSJ JN-110A</td>
+        <td class="subject violet">ECE3PR01A<br>PR/TY_ECE_PR_B<br>3] RAK KS-405</td>
+        <td class="recess">Recess</td>
+        <td class="subject blue">ECE3PE11A<br>PR/ERS_PE_PR_1<br>1] VUP VK-305</td>
+        <td></td>
+        <td></td>
+        <td class="subject cyan">ECE3PE31A<br>TH/EMB_RTOS_PE_TH_1<br>SNJ KS-406</td>
+      </tr>
+
+      <tr>
+        <td><strong>Wednesday</strong></td>
+        <td class="subject blue">ECE3PE31A<br>PR/RTOS_PE_PR_3<br>SNJ VK-411B</td>
+        <td></td>
+        <td class="recess">Recess</td>
+        <td class="subject green">ECE3PM01A<br>PR/TY_ECE_PR_B<br>3] SBS VK-306</td>
+        <td class="subject green">ECE3PM02A<br>PR/TY_ECE_PR_B<br>2] SMK VK-306</td>
+        <td class="recess">Recess</td>
+        <td class="subject green">ECE3PM01A<br>TH/TY_ECE_B_TH<br>1] PMJ VK-306</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td><strong>Thursday</strong></td>
+        <td class="subject cyan">ECE3PM01A<br>PR/TY_ECE_PR_B<br>1] SBS VK-306A</td>
+        <td></td>
+        <td class="recess">Recess</td>
+        <td class="subject green">ECE3PM02A<br>TH/TY_ECE_B_TH<br>1] PMJ VK-306</td>
+        <td></td>
+        <td class="recess">Recess</td>
+        <td class="subject violet">ECE3PE21A<br>PR/ANN_PR_B<br>1] MCK VK-411C</td>
+        <td></td>
+        <td></td>
+        <td class="subject cyan">ECE3PE31A<br>TH/RTOS_PE_TH_1<br>SNJ KS-106</td>
+      </tr>
+      <tr>
+        <td><strong>Friday</strong></td>
+        <td class="subject cyan">ECE3PM01A<br>PR/TY_ECE_PR_B<br>1] SBS VK-306A</td>
+        <td></td>
+        <td class="recess">Recess</td>
+        <td class="subject green">ECE3PM02A<br>TH/TY_ECE_B_TH<br>1] PMJ VK-306</td>
+        <td></td>
+        <td class="recess">Recess</td>
+        <td class="subject violet">ECE3PE21A<br>PR/ANN_PR_B<br>1] MCK VK-411C</td>
+        <td></td>
+        <td></td>
+        <td class="subject cyan">ECE3PE31A<br>TH/RTOS_PE_TH_1<br>SNJ KS-106</td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <footer class="erp-footer">
+    Copyright © 2025 | Wordpro Computer Consultancy Services Pvt. Ltd.
+  </footer>
+</div>
+
+<style>
+  .erp-timetable-container {
+    padding-top:30px;
+
+    width: 98%;
+    max-width: 1400px;
+    margin: 30px auto;
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    padding-bottom: 10px;
+  }
+
+  .erp-header {
+    background: #2a3281;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .erp-header h2 {
+    margin: 0;
+    font-size: 22px;
+  }
+
+  .erp-header p {
+    margin: 6px 0 0;
+    font-size: 16px;
+  }
+
+  .erp-timetable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    table-layout: fixed; /* makes columns equal width */
+  }
+
+  .erp-timetable th {
+    background: #25317a;
+    color: white;
+    padding: 14px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .erp-timetable td {
+    border: 1px solid #bbb;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 13.5px;
+    padding: 14px 10px;
+    min-width: 100px;
+    height: 75px;
+    word-wrap: break-word;
+  }
+
+  .recess {
+    background: #f3f3f3;
+    font-weight: bold;
+    color: #444;
+    font-size: 14px;
+  }
+
+  .subject {
+    color: #000;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 13.5px;
+  }
+
+  .blue  { background: #b0caff; }
+  .cyan  { background: #a8e8fc; }
+  .violet{ background: #d6c3ff; }
+  .green { background: #c9f7c9; }
+
+  .erp-footer {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    padding: 12px 0;
+    border-top: 1px solid #ddd;
+    background: #f9f9f9;
+  }
+
+  @media (max-width: 900px) {
+    .erp-timetable { font-size: 11px; }
+    .erp-timetable th, .erp-timetable td {
+      padding: 6px;
+      height: auto;
+    }
+  }
+</style>

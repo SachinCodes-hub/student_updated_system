@@ -1,0 +1,261 @@
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0; /* Light background for the overall page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.background-wrapper {
+    width: 100%;
+    max-width: 1200px; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-card {
+    display: flex;
+    width: 800px; /* Overall width of the card */
+    height: 450px; /* Overall height of the card */
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: white;
+}
+
+/* --- Left Branding Panel --- */
+.branding-panel {
+    width: 55%;
+    background-color: #1a237e; /* Deep blue color */
+    color: white;
+    padding: 30px;
+    box-sizing: border-box;
+    /* Creating the curved edge effect */
+    position: relative;
+    /* Ensure the blue panel is below the login content in the overlap zone */
+    z-index: 1; 
+}
+
+.branding-panel::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    bottom: -50px;
+    /* Move the curve edge further left so the login content doesn't start in it */
+    right: -150px; 
+    width: 250px; /* Wider circle to create a smoother curve */
+    background: white;
+    border-radius: 50%;
+    transform: rotate(10deg);
+    /* Set curve Z-index lower than login content but higher than the blue panel */
+    z-index: 5; 
+}
+
+.logo-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    position: relative; 
+    z-index: 10; /* Keep logo content clearly visible */
+}
+
+.logo-container img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 8pt;
+    line-height: 1.2;
+}
+
+.logo-title { font-weight: 400; }
+.logo-university { font-weight: 700; }
+.logo-location, .logo-tagline {
+    font-weight: 300;
+    font-size: 7pt;
+}
+
+.system-info {
+    padding-left: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+.system-title {
+    font-size: 24pt;
+    font-weight: 700;
+    margin: 0 0 30px 0;
+    line-height: 1.1;
+}
+
+.cas-erp-badge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid white;
+    background-color: #1a237e; 
+    margin-top: 50px;
+}
+
+.cas-text {
+    font-size: 30pt;
+    font-weight: 700;
+    line-height: 1;
+}
+.erp-text {
+    font-size: 10pt;
+    font-weight: 400;
+}
+
+
+/* --- Right Login Form --- */
+.login-form-container {
+    /* Adjusted width to ensure it is large enough to contain the content */
+    width: 45%; 
+    min-width: 350px; /* Ensure content doesn't crowd */
+    padding: 30px 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* IMPORTANT: Ensure login form is on top of the curve */
+    z-index: 10; 
+}
+
+.login-heading {
+    font-size: 28pt;
+    font-weight: 700;
+    color: rgb(227, 17, 17);
+    margin: 0;
+    text-align: left;
+}
+
+.login-prompt {
+    font-size: 10pt;
+    color: #555;
+    margin: 5px 0 30px 0;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-label {
+    display: block;
+    font-size: 9pt;
+    color: #555;
+    margin-bottom: 3px;
+    text-align: left;
+}
+
+#username, #password {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 10pt;
+    transition: border-color 0.3s;
+}
+
+#username {
+    border-color: #ff9800; 
+}
+
+#username:focus, #password:focus {
+    border-color: #1a237e;
+    outline: none;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.login-button, .reset-button {
+    padding: 8px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 10pt;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button {
+    background-color: 313970;
+    color: white;
+    margin-right: 15px;
+}
+
+.reset-button {
+    background-color: #f0f0f0;
+    color: #313970;
+    border: 1px solid #ccc;
+}
+
+.login-button:hover {
+    background-color: #0d1252;
+}
+
+.reset-button:hover {
+    background-color: #ddd;
+}
+
+.forgot-password {
+    font-size: 9pt;
+    color: 313970;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Error Message */
+.error-message {
+    font-size: 10pt;
+    color: #d32f2f;
+    margin-top: 10px;
+    height: 14pt; 
+}
+
+/* Copyright Text */
+.copyright {
+    font-size: 8pt;
+    color: #888;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#warning{
+    color:red;
+    font-weight:bold;
+    
+    font-size:12pt;
+    margin-top:10px ;
+
+
+}

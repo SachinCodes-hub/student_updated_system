@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAS Login - MIT World Peace University</title>
+    <link rel = "icon" href="https://erp.mitwpu.edu.in/New_css/favicon/apple-touch-icon.png" >
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="login-modern.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-wrapper">
+        <div class="login-card">
+            <div class="branding-panel">
+                <div class="logo-container">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D0BAQH39CnaYUNguA/company-logo_200_200/company-logo_200_200/0/1729247947484/mitwpuofficial_logo?e=2147483647&v=beta&t=AEjKNOgYmyix2oYoRzWni2HMh11ZCbOEW8-nFqhVGEM" alt="MIT WPU Logo">
+                    <div class="logo-text">
+                        <span class="logo-title">Dr. Vishwanath Karad</span>
+                        <span class="logo-university">MIT WORLD PEACE UNIVERSITY</span>
+                        <span class="logo-location">PUNE</span>
+                        <span class="logo-tagline">TECHNOLOGY RESEARCH SOCIAL INNOVATION PARTNERSHIPS</span>
+                    </div>
+                </div>
+                
+                <div class="system-info">
+                    <h2 class="system-title">College <br> Administration <br> System</h2>
+                    <div class="cas-erp-badge">
+                        <span class="cas-text">CAS</span>
+                        <span class="erp-text">ERP</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="login-form-container">
+                <h1 class="login-heading">Login</h1>
+                <p class="login-prompt">Please login to your Account</p>
+                
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="username" class="input-label">User Id</label>
+                        <input type="text" id="username" name="username" placeholder="Username">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password" class="input-label">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Password">
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="login-button">Login</button>
+                        <button type="reset" class="reset-button">Reset</button>
+                    </div>
+                    
+                    <a href="#" class="forgot-password">Forgot Password</a>
+                    <p id="errorMessage" class="error-message"></p>
+                </form>
+            </div>
+        </div>
+        
+            <p id ="warning">Multiple device logins are not permitted.</p>
+            
+
+        <p class="copyright">
+            Copyright © 2021 &nbsp; World pro Computer Consultancy Services Pvt. Ltd.
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+
+            const expectedUsername = 'sachinkarale.mit';
+            const expectedPassword = 'SACHIN';
+            
+            if (username.toLowerCase() === expectedUsername && password === expectedPassword) {
+                errorMessage.textContent = 'Login successful! Redirecting to Home Page...';
+                errorMessage.style.color = '#388e3c'; 
+                
+                setTimeout(() => {
+                    window.location.href = 'index.html'; 
+                }, 1000); 
+
+            } else {
+                errorMessage.textContent = 'Invalid User Id or Password.';
+                errorMessage.style.color = '#d32f2f'; 
+            }
+        });
+    </script>
+</body>
+</html>

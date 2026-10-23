@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Profile</title>
+    <link rel = "icon" href ="https://erp.mitwpu.edu.in/New_css/favicon/apple-touch-icon.png" >
+    <link rel="stylesheet" href="portal.css">
+    <script src="portal.js" defer></script>
+
+</head>
+<body>
+<style>
+/* Navbar Container */
+body{
+    width:100% ;
+    margin:0;
+    padding:0;
+    
+
+}
+.navbar {
+  color:#f0f0f0;
+  position:fixed;
+  width: 100%;
+  top:0;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content:left;
+  background: #313970;
+  
+  font-family: Arial, sans-serif;
+  
+}
+
+/* Left side: logo + hamburger */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Logo */
+.nav-left img {
+  height: 40px;
+}
+
+/* Hamburger icon */
+.hamburger {
+  font-size: 26px;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+}
+
+/* Dropdown menu */
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 70px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.menu-dropdown a {
+  display: block;
+  padding: 10px 18px;
+  text-decoration: none;
+  color: #333;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.menu-dropdown a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Right-side links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 800;
+  transition: color 0.3s;
+}
+#title1{
+    margin-left:30px;
+
+}
+#title2{
+    margin-left:200px;
+    padding-left:500px;
+
+}
+
+.nav-links a:hover {
+  color: grey;
+}
+
+/* Responsive (optional) */
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ✅ Navbar -->
+<nav class="navbar">
+  <div class="nav-left">
+    <img src="data:image/jpeg;base64,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" alt="Logo">
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+  </div>
+
+  <!-- Dropdown -->
+  <div class="menu-dropdown" id="menuDropdown">
+    <a href="profile.html">profile</a>
+    <a href="attendence.html">attendence</a>
+    <a href="result.html">timetable</a>
+    <a href="result.html">result</a>
+    <a href="onlinelibrary.html"> E-library</a>
+    <a href = "Fees.html">Fees</a>
+    <a href="hallticket.html">HallTicket</a>
+    <a href = "achievement.html" >Achivements</a>
+    <a href="academics.html" >Academics</a>
+  </div>
+
+  <div class="nav-links">
+    <a href="home.html" id = "title1">School of Enginnering and Technology , Punecity</a>
+    <a href="profile.html" id = "title2">Sachin Laxman Karale</a>
+   
+  </div>
+</nav>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menuDropdown");
+  menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+</script>
+    
+
+<!-- ERP Profile Section -->
+<div class="erp-container">
+  <div class="erp-header">
+    <h2>School of Engineering and Technology</h2>
+    <p>pune city</p>
+  </div>
+
+  <div class="erp-profile">
+    <div class="profile-photo">
+      <img src="images/WhatsApp Image 2025-10-18 at 15.54.13.jpeg" alt="Profile Photo">
+      <p class="signature">Signature</p>
+    </div>
+
+    <div class="profile-info">
+      <h3>Mr. SACHIN LAXMAN KARALE</h3>
+      <p><strong>Permanent Address:</strong> PLOT NO,214, POLICE COLONY, NIRMAL NAGAR, SAVEDI, INDIA, MAHARASHTRA, AHMEDNAGAR, 414003</p>
+      <p><strong>Mobile No:</strong> +919970340396</p>
+    </div>
+  </div>
+
+  <div class="academic-details">
+    <div class="row">
+      <div><strong>Self Registration Code:</strong> 223581</div>
+      <div><strong>Year:</strong> 2025–2026</div>
+      <div><strong>Form No:</strong> —</div>
+    </div>
+
+    <div class="section-title">📘 ADMISSION DETAILS</div>
+
+    <div class="info-grid">
+      <div><strong>Course Year:</strong> TYBTech - ECE-B</div>
+      <div><strong>Admission Pattern:</strong> REGULAR</div>
+      <div><strong>Section:</strong> TYBTech - ECE-B</div>
+      <div><strong>Date of Registration:</strong> 03/05/2023</div>
+      <div><strong>Admitted Academic Year:</strong> 2023–2024</div>
+      <div><strong>University Enrollment Number:</strong> —</div>
+      <div><strong>Transfer Year:</strong> —</div>
+      <div><strong>Admission Status:</strong> CONFIRMED</div>
+      <div><strong>Student Code:</strong> 1032231307</div>
+      <div><strong>Admission Mode:</strong> —</div>
+      <div><strong>Current Academic Year:</strong> 2025–2026</div>
+    </div>
+
+    <div class="section-title">👤 PERSONAL INFORMATION</div>
+
+    <div class="info-grid">
+      <div><strong>Date of Birth:</strong> 07/01/2005</div>
+      <div><strong>Birth Place:</strong> AHMEDNAGAR</div>
+      <div><strong>Nationality:</strong> INDIAN</div>
+      <div><strong>Religion:</strong> HINDU</div>
+      <div><strong>Gender:</strong> MALE</div>
+      <div><strong>Domicile State:</strong> MAHARASHTRA</div>
+    </div>
+    </div>
+
+    <div class="section-title">📘 PARENT DETAILS</div>
+
+    <div class="info-grid">
+
+        <div><strong>Name:</strong> Laxman Karale</div>
+        <div><strong>parent occupation : </strong> private</div>
+        <div><strong>city :</strong> Rajasthan</div>
+        <div><strong>DOB :</strong> 04/11/1980</div>
+    </div>
+    <div class="section-title">👤 QUALIFYING EXAM -</div>
+
+    <div class="info-grid">
+        <div><strong>Exam :</strong> JEE Mains</div>
+        <div><strong>DATE : </strong> 2023</div>
+        <div><strong>ROLL NUMBER :</strong> 230310378414</div>
+        <div><strong>STATUS :</strong> PASSED</div>
+    </div>
+    
+
+    <div class="section-title">👤 Certificate Details -</div>
+
+    <div class="info-grid">
+        <div><strong>SSC 10th Mark sheet:</strong> Submitted</div>
+        <div><strong>HSC 12th / Diploma Mark sheet:</strong> Submitted</div>
+        <div><strong>Leaving cretificate : </strong>submitted</div>
+        <div><strong>Aadhaar Card:</strong> Submitted</div>
+        <div><strong>Candidates' passport:</strong> Not submitted</div>
+        <div><strong>Gap certificate</strong> submitted</div>
+    </div>
+    </div>
+    </div>
+    </body>
+  
+
+  <footer class="erp-footer">
+    Copyright © 2025 | Wordpro Computer Consultancy Services Pvt. Ltd.
+  </footer>
+</div>
+
+<!-- CSS -->
+<style>
+  .erp-container {
+    padding-top:45px;
+
+    background: #f9f9f9;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding-bottom: 20px;
+  }
+
+  .erp-header {
+    background: #e3f2fd;
+    border-bottom: 2px solid #1976d2;
+    text-align: center;
+    padding: 15px 0;
+  }
+
+  .erp-header h2 {
+    color: #0d47a1;
+    margin: 0;
+  }
+
+  .erp-header p {
+    margin: 4px 0 0;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .erp-profile {
+    display: flex;
+    padding: 15px 30px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .profile-photo {
+    width: 140px;
+    text-align: center;
+  }
+
+  .profile-photo img {
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid #999;
+    border-radius: 3px;
+  }
+
+  .signature {
+    font-size: 13px;
+    margin-top: 5px;
+    color: #333;
+  }
+
+  .profile-info {
+    flex: 1;
+    padding-left: 20px;
+  }
+
+  .profile-info h3 {
+    margin: 0 0 10px;
+    color: #222;
+  }
+
+  .profile-info p {
+    margin: 5px 0;
+    line-height: 1.5;
+  }
+
+  .academic-details {
+    padding: 0 30px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 15px 0;
+  }
+
+  .section-title {
+    background: #d0f0d0;
+    color: #000;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #8bc34a;
+    margin: 15px 0 5px;
+  }
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.info-grid div {
+    background: #fdfdfd;
+    padding: 6px 8px;
+    border-radius: 3px;
+    border: 1px solid #eee;
+}
+
+.erp-footer {
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+    margin-top: 20px;
+}
+</style>
+
+</body>
+</html>

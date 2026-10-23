@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Attendance</title>
+<head>
+    <link rel = "icon" href ="https://erp.mitwpu.edu.in/New_css/favicon/apple-touch-icon.png" >
+    <link rel="stylesheet" href="portal.css">
+    <script src="portal.js" defer></script>
+
+
+<style>
+.navbar {
+    position:fixed;
+    width:100%;
+    color:#f0f0f0;
+
+    display: flex;
+    align-items: center;
+    justify-content:left;
+
+  
+    background: #313970;
+
+  font-family: Arial, sans-serif;
+}
+
+/* Left side: logo + hamburger */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Logo */
+.nav-left img {
+  height: 40px;
+}
+
+/* Hamburger icon */
+.hamburger {
+  font-size: 26px;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+}
+
+/* Dropdown menu */
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 70px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.menu-dropdown a {
+  display: block;
+  padding: 10px 18px;
+  text-decoration: none;
+  color: #333;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.menu-dropdown a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Right-side links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: grey;
+}
+
+/* Responsive (optional) */
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+#title1{
+    margin-left:30px;
+
+}
+#title2{
+    margin-left:200px;
+    padding-left:500px;
+
+}
+
+.header {
+  background-color: #2a338b;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header img {
+  height: 40px;
+}
+
+.sub-header {
+  background-color: #313970;
+  color: white;
+  padding: 8px 20px;
+  font-weight: bold;
+  text-align:center;
+
+}
+
+.container {
+  margin: 30px auto;
+  width: 90%;
+  background: white;
+  color:black;
+
+  
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+th, td {
+  border: 1px solid #d0d0d0;
+  padding: 10px;
+}
+
+th {
+  background-color: #2a338b;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.summary {
+  background-color: #eef2ff;
+  font-weight: bold;
+}
+
+.note {
+  font-size: 13px;
+  margin-top: 20px;
+  line-height: 1.6;
+  color: #444;
+  margin-left:30px;
+
+}
+
+.buttons {
+  text-align: center;
+  margin: 25px 0;
+}
+
+button {
+  background-color: #2a338b;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #1e2566;
+}
+</style>
+</head>
+<body>
+
+    <nav class="navbar">
+  <div class="nav-left">
+    <img src="data:image/jpeg;base64,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" alt="Logo">
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+  </div>
+
+  <!-- Dropdown -->
+  <div class="menu-dropdown" id="menuDropdown">
+    <a href="profile.html">profile</a>
+    <a href="attendence.html">attendence</a>
+    <a href="result.html">timetable</a>
+    <a href="result.html">result</a>
+    <a href="onlinelibrary.html"> E-library</a>
+    <a href = "Fees.html">Fees</a>
+    <a href="hallticket.html">HallTicket</a>
+    <a href = "achievement.html" >Achivements</a>
+    <a href="academics.html" >Academics</a>
+  </div>
+
+  <div class="nav-links">
+    <a href="home.html" id = "title1">School of Enginnering and Technology , Punecity</a>
+    <a href="profile.html" id ="title2">Sachin Laxman Karale</a>
+   
+  </div>
+</nav>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menuDropdown");
+  menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+</script>
+
+
+
+<div class="sub-header">
+  Self Attendance Report (TYBTech - ECE-B 2025–2026 SEMESTER-V)
+</div>
+
+
+<div class="container" id = "attendenceReport">
+  <table>
+    <tr>
+      <th>Sr No</th>
+      <th>Subject</th>
+      <th>Subject Type</th>
+      <th>Present</th>
+      <th>Total Period</th>
+      <th>Percentage (%)</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Artificial Neural Network</td>
+      <td>TH</td>
+      <td>30</td>
+      <td>32</td>
+      <td>93.75</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Digital Communication</td>
+      <td>PR</td>
+      <td>20</td>
+      <td>22</td>
+      <td>90.90</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Digital Signal Processing</td>
+      <td>TH</td>
+      <td>31</td>
+      <td>34</td>
+      <td>91.17</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Simulation Laboratory</td>
+      <td>PR</td>
+      <td>19</td>
+      <td>22</td>
+      <td>86.36</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Project Based Learning - III</td>
+      <td>PR</td>
+      <td>26</td>
+      <td>26</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Managing Conflicts Peacefully: Tools and Techniques</td>
+      <td>TH</td>
+      <td>15</td>
+      <td>16</td>
+      <td>93.75</td>
+    </tr>
+
+    <tr class="summary">
+      <td colspan="2" align="right">Theory</td>
+      <td colspan="2" align="center">109</td>
+      <td>115</td>
+      <td>94.47</td>
+    </tr>
+    <tr class="summary">
+      <td colspan="2" align="right">Practical</td>
+      <td colspan="2" align="center">103</td>
+      <td>110</td>
+      <td>93.63</td>
+    </tr>
+    <tr class="summary">
+      <td colspan="2" align="right">Total</td>
+      <td colspan="2" align="center">212</td>
+      <td>225</td>
+      <td>94.22</td>
+    </tr>
+  </table>
+
+  <div class="note">
+    <b>Note:</b><br>
+    • 80% Attendance (Theory as well as Practical) is compulsory.<br>
+    • This is an electronically generated document based on uploading of attendance records by concerned faculty.<br>
+    • Discrepancies related to attendance records should be communicated to the class-in-charge or HOD.
+  </div>
+
+  <div class="buttons">
+    <button onclick="printReport()">🖨 Print</button>
+  </div>
+</div>
+<script>
+    function printReport(){
+        const printContents = document.getElementById("attendanceReport").innerHTML;
+        const originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+}
+</script>
+
+</body>
+</html>

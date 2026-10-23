@@ -1,0 +1,171 @@
+body{
+
+    background-color:white;
+
+}
+/* Basic Reset and Global Styles */
+body {
+    font-family: Arial, sans-serif; /* A clean, standard font */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* A very light grey background */
+    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+    display: flex; /* Enable flexbox for vertical layout */
+    flex-direction: column;
+}
+
+/* --- Header Styling (The blue/dark bar with the page title) --- */
+.page-title-bar {
+    background-color: #3b5998; /* A dark blue color similar to the image */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-title-bar h1 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin: 0;
+    /* Optional: Match the slight separation from the top element */
+    padding-top: 5px; 
+}
+
+
+/* --- Button Container Styling (The main layout for the two buttons) --- */
+.button-container {
+    /* Flexbox centers the buttons horizontally and vertically */
+    display: flex;
+    justify-content: flex-start; /* Start from the left */
+    align-items: flex-start; /* Start from the top */
+    
+    /* Use padding/margin to position the buttons similar to the image */
+    padding: 50px 100px; 
+    flex-grow: 1; /* Allows container to take up remaining vertical space */
+}
+
+/* --- Individual Button Styling --- */
+.library-button {
+    /* Style it like a block element that acts as a button */
+    display: block; 
+    width: 250px; /* Set a fixed width */
+    height: 150px; /* Set a fixed height */
+    margin-right: 20px; /* Space between the two buttons */
+    border-width:5px;
+    border-radius:30px;
+
+
+
+    /* Text styling */
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none; /* Remove underline from the link */
+    
+    /* Flexbox to center the text inside the button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Box shadows for a slightly raised/3D effect */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px; /* Slight rounding of the corners */
+    
+    /* Smooth transition for hover effect */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Colors for the specific buttons */
+.red-bg {
+    background-color: #E65A5A; /* A soft, somewhat muted red */
+}
+
+.green-bg {
+    background-color: #6EB44A; /* A muted, mossy green */
+}
+
+/* Hover effect for interactivity */
+.library-button:hover {
+    transform: translateY(-2px); /* Lift the button slightly */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+/* --- Footer Styling (Copyright text) --- */
+.copyright {
+    /* Position at the very bottom of the viewport */
+    padding: 10px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    /* Ensure it sticks to the bottom, though flex-grow on main helps */
+    margin-top: auto; 
+}
+
+.navbar{
+    z-index: 9999;
+    margin: 0% auto;
+    width: 100%;
+    background-color: #313970;
+
+    opacity: 1;
+    -moz-opacity: 1;
+    color:white;
+
+
+
+}
+.navbar2{
+    text-align:center;
+
+  
+    margin: 0% auto;
+    padding: 10px;
+    width: 100%;
+    background-color:rgb(36, 36, 127);
+    
+    color:white;
+
+}
+
+
+.library{
+    
+
+    background-color :white;
+    display:inline-block;
+
+
+}
+#li1{
+    
+    background-color:lightgreen;
+    color:white;
+    height:70px;
+    width:150px;
+    text-align:center;
+    margin-top:50px;
+
+    padding-top:20px;
+    padding-bottom:20px ;
+    border-color:black;
+    border:dotted;
+
+
+
+
+
+}
+#li2{
+    background-color:lightblue;
+    color:white;
+    height:70px;
+    width:150px;
+    text-align:center;
+    padding-top:20px;
+    border-color:black;
+    border:dotted;
+
+
+    
+}
